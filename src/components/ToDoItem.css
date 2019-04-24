@@ -1,0 +1,13 @@
+.ToDoItem-Text {
+    color: #000000;
+    background-color: #adb7bf;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    width: auto;
+  }
+
+  .ToDoItem-Text:hover {
+    background-color: pink;
+    cursor: pointer;
+  }

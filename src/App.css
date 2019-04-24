@@ -1,33 +1,75 @@
+ body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Logo {
+  width: 90px;
+  position: relative;
+  top: 50px;
+}
+
 .App {
   text-align: center;
+  border: 1px solid white;
+  width: 80vw;
+  height: auto;
+  background: #ffffff;
+  padding-bottom: 60px;
+  margin: 40px auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
+.App-Header {
   color: #61dafb;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  margin: 70px auto 30px;
+  font-size: 2.5em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ToDo-Add {
+  color: white;
+  font-size: 2em;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: #73ff73;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #47a947;
+  margin: 20px auto 0;
+}
+
+.ToDo-Add:hover {
+  box-shadow: none;
+  margin-left: calc(auto + 1px);
+}
+
+.App-Container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.ToDo-List {
+  display: inline-flex;
+  justify-content: center;
+  flex-direction: column-reverse;
+  align-items: center;
+  list-style: none;
+}
+
+input {
+  width: 45%;
+  padding: 10px;
+  font-size: 1em;
+  height: 3em;
+  margin: 10px auto;
 }

@@ -1,28 +1,62 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Logo from './logo.svg';
 import './App.css';
+import ToDoItem from './components/ToDoItem';
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    state = {
+      todos: [],
+      todo: ''
+    };
+
+    addItem = () => {
+      if (this.state.todo.length === 0) {
+        return;
+      }
+
+      this.setState(({ todos, todo }) => ({
+        todos: [
+          ...todos,
+          {todo}
+        ],
+      }));
+    };
+
+    handleInput = e => {
+      this.setState({todo: e.target.value});
+    };
+
+    deleteItem = key => e => {
+      this.setState(({ todos }) => ({
+        todos: todos.filter((toDo, index) => index !== key)
+      }));
+    };
+
+    render() {
+        return (
+            <div className="App">
+              <img className="Logo" src={Logo} alt="React logo"/>
+              <h1 className="App-Header">React To Do</h1>
+              <div className="App-Container">
+                  <div>
+                      <input type="text" placeholder="Task" value={this.state.todo} onChange={this.handleInput}/>
+                      <span className="btn btn-primary" onClick={this.addItem}>Add</span>
+                  </div>
+                  <div>
+                  <ul className="ToDo-List">
+                      {this.state.todos.map((Item, key) =>
+                        <ToDoItem
+                          todo={Item.todo}
+                          key={key}
+                          deleteItem={this.deleteItem(key)}
+                        />
+                      )}
+                    </ul>
+                  </div>
+              </div>
+            </div>
+        );
+    }
 }
 
 export default App;
